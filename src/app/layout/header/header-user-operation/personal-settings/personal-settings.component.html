@@ -1,0 +1,32 @@
+<div class="drawer">
+    <d-toast [value]="message"></d-toast>
+    <div class="drawer-operations">
+        <span (click)="close($event)" class="cs cs-close"> </span>
+    </div>
+    <div class="drawer-options top-border">
+        <div class="drawer-option-header">
+            <p><!-- I18N -->主题设置</p>
+        </div>
+        <div class="drawer-option-item theme">
+            <!--  设置主题的组件  -->
+            <cs-theme-changer #themeSettingBox></cs-theme-changer>
+        </div>
+        <div class="drawer-option-item">
+
+        </div>
+    </div>
+    <div class="drawer-options top-border">
+        <div class="drawer-options-header">
+            <p><!-- I18N -->布局设置</p>
+        </div>
+        <d-alert [type]="'info'" [closeable]="false">恢复默认的个人配置</d-alert>
+        <d-button
+            [bsStyle]="'common'"
+            [width]="'100%'"
+            (btnClick)="onResetButtonClick()"
+        >
+            重置配置
+            <i class="cs cs-setting"></i>
+        </d-button>
+    </div>
+</div>

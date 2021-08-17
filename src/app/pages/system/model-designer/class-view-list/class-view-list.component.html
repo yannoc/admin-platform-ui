@@ -1,0 +1,10 @@
+<d-data-table #datatable [dataSource]="dataSource" [checkable]="true" [tableHeight]="'100%'">
+    <d-column
+        *ngFor="let col of columns"
+        [field]="col.field"
+        [header]="col.header"
+        [fieldType]="col.fieldType"
+        [width]="'150px'"
+    >
+    </d-column>
+</d-data-table>

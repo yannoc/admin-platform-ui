@@ -1,0 +1,54 @@
+<ul class="user-operation">
+    <li
+        dDropDown
+        appendToBody
+        dDropDownToggle
+        [trigger]="'click'"
+        [closeScope]="'blank'"
+    >
+        <d-badge [count]="'114'">
+            <i class="cs cs-message"></i>
+        </d-badge>
+        <div dDropDownMenu role="menu">
+            <cs-personal-notice (countEvent)="handleNoticeCount($event)"></cs-personal-notice>
+        </div>
+    </li>
+    <li (click)="openSettingDrawer()">
+        <i class="cs cs-setting"></i>
+    </li>
+    <li
+        dDropDown
+        [trigger]="'hover'"
+        appendToBody
+        dDropDownToggle
+        class="user-operation-personal"
+    >
+        <d-avatar [width]="26" [height]="26" imgSrc=""></d-avatar>
+        <span class="user-name"> {{ userName }}</span>
+        <ul dDropDownMenu class="devui-dropdown-menu devui-scrollbar" role="menu" style="min-width: 100px">
+            <li role="menuitem">
+                <a class="devui-dropdown-item">
+                    <i class="cs cs-user"></i>
+                    <!-- i18n -->
+                    <!--{{ 'header.userCenter' | translate }}-->
+                    个人中心
+                </a>
+            </li>
+            <li role="menuitem">
+                <a class="devui-dropdown-item">
+                    <i class="cs cs-setting"></i>
+                    <!-- i18n -->
+                    修改密码
+                </a>
+            </li>
+            <!--<li role="menuitem" (click)="handleUserOps('logout')">-->
+            <li role="menuitem">
+                <a class="devui-dropdown-item logout">
+                    <i class="cs cs-logout"></i>
+                    <!-- i18n -->
+                    退出
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>

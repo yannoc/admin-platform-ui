@@ -1,0 +1,110 @@
+@import "~ng-devui/styles-var/devui-var.less";
+
+.theme {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    &-option-header {
+        color: @devui-text;
+        font-size: @devui-font-size-page-title;
+        text-align: center;
+        font-weight: 600;
+        margin-bottom: 12px;
+        margin-top: 24px;
+
+        .icon {
+            font-size: @devui-font-size-data-overview;
+        }
+    }
+
+    &-option-items {
+        display: flex;
+        justify-content: center;
+
+        .theme-option-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: @devui-border-radius;
+            cursor: pointer;
+            margin-left: 12px;
+            transition: box-shadow 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+            transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+            &:hover {
+                box-shadow: @devui-shadow-length-hover @devui-light-shadow;
+                transform: translateY(-2px);
+            }
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            .check {
+                position: absolute;
+                font-size: @devui-font-size-card-title;
+                color: @devui-light-text;
+            }
+        }
+    }
+}
+
+.icon-content {
+    border-radius: @devui-border-radius-card;
+    background-color: @devui-primary;
+    color: @devui-light-text;
+}
+
+.large {
+    .color {
+        width: 30px;
+        height: 30px;
+    }
+
+    .font {
+        width: 46px;
+        height: 46px;
+    }
+
+    .radius {
+        width: 46px;
+        height: 46px;
+    }
+}
+
+.default {
+    .color {
+        width: 26px;
+        height: 26px;
+    }
+
+    .font {
+        width: 42px;
+        height: 42px;
+    }
+
+    .radius {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+.small {
+    .color {
+        width: 22px;
+        height: 22px;
+    }
+
+    .font {
+        width: 38px;
+        height: 38px;
+    }
+
+    .radius {
+        width: 38px;
+        height: 38px;
+    }
+}
+

@@ -1,0 +1,63 @@
+<d-layout class="layout-wrapper">
+    <d-aside class="layout-aside-wrapper">
+        <div class="layout-sidebar" style="width: 240px"></div>
+    </d-aside>
+    <d-aside class="layout-aside-wrapper layout-aside-fixed">
+        <cs-menu class="layout-sidebar" [menu]="menus" [(collapsed)]="isCollapsed" (menuItemClick)="addTab($event)"></cs-menu>
+    </d-aside>
+    <d-layout>
+        <d-header class="layout-header-wrapper"></d-header>
+        <d-header class="layout-header-wrapper layout-header-fixed">
+            <div class="header-logo">
+                <a href="https://www.c-standard.cn/" target="_blank">
+                    <img src="assets/img/logo.png" alt="世纪标准">
+                </a>
+            </div>
+            <!--<div class="header-trigger">-->
+            <!--    <i class="cs" [ngClass]="isCollapsed?'cs-retract':'cs-expand'" (click)="isCollapsed = !isCollapsed"></i>-->
+            <!--</div>-->
+            <div class="header-menu">
+                <d-tabs [type]="'tabs'" [showContent]="false" [(activeTab)]="siteIndex" (activeTabChange)="onSiteChanged($event)">
+                    <ng-container *ngFor="let site of sites">
+                        <d-tab [id]="site.index" [title]="site.title"></d-tab>
+                    </ng-container>
+                </d-tabs>
+            </div>
+            <cs-header-user-operation></cs-header-user-operation>
+        </d-header>
+        <d-content class="layout-content-wrapper">
+            <d-layout class="content-panel">
+                <d-header>
+                    <d-tabs [type]="'tabs'" [showContent]="false" [(activeTab)]="tabIndex" (activeTabChange)="onActiveTabChange($event)">
+                        <ng-container *ngFor="let tab of tabs">
+                            <d-tab [id]="tab.title">
+                                <ng-template dTabTitle>
+                                    <div class="tab-item" [routerLink]="[tab.link]">
+                                        <span class="tab-item-title">{{ tab.title }}</span>
+                                        <i *ngIf="tabs.length > 0" class="cs cs-close tab-item-close-btn" (click)="closeTab(tab)"></i>
+                                    </div>
+                                </ng-template>
+                            </d-tab>
+                        </ng-container>
+                    </d-tabs>
+                    <!--<nz-dropdown-menu #tabDropdownMenu="nzDropdownMenu">-->
+                    <!--    <ul nz-menu class="menu-content">-->
+                    <!--        <li nz-menu-item *ngIf="rightClickTabIndex === tabIndex" (click)="refreshTab(rightClickTabIndex)">刷新</li>-->
+                    <!--        <li nz-menu-item *ngIf="tabs.length !== 1" (click)="closeTab(rightClickTabIndex)">关闭标签</li>-->
+                    <!--        <li nz-menu-item *ngIf="rightClickTabIndex !== 0" (click)="closeTab(rightClickTabIndex,'left')">关闭左侧标签</li>-->
+                    <!--        <li nz-menu-item *ngIf="rightClickTabIndex !== tabs.length - 1" (click)="closeTab(rightClickTabIndex,'right')">关闭右侧标签</li>-->
+                    <!--        <li nz-menu-item *ngIf="tabs.length !== 1" (click)="closeTab(rightClickTabIndex,'other')">关闭其他标签</li>-->
+                    <!--    </ul>-->
+                    <!--</nz-dropdown-menu>-->
+                </d-header>
+                <d-content>
+                    <router-outlet></router-outlet>
+                </d-content>
+            </d-layout>
+        </d-content>
+    </d-layout>
+</d-layout>
+<d-back-top
+    [right]="'30px'"
+    [bottom]="'50px'"
+></d-back-top>

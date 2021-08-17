@@ -1,0 +1,176 @@
+@import "~src/assets/less/variables.less";
+
+.layout-wrapper {
+    min-height: 100%;
+
+    & > d-layout {
+        width: 0;
+    }
+
+    .layout-aside-wrapper {
+        display: flex;
+        z-index: 100;
+        padding-top: @header-default-height;
+        //background-color: @layout-side-bg;
+        box-shadow: @devui-shadow-length-connected-overlay @devui-light-shadow;
+
+        &.layout-aside-top {
+            z-index: 101;
+        }
+
+        &.layout-aside-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        .layout-sidebar {
+            background-color: @devui-base-bg;
+            border-right: 1px solid @devui-dividing-line;
+        }
+
+        &.no-sec-sidebar .layout-sidebar {
+            border-right: none;
+        }
+
+        .layout-sec-sidebar {
+            background-color: @devui-base-bg;
+        }
+    }
+
+    .layout-header-wrapper {
+        display: flex;
+        display: -webkit-flex;
+        padding: 0 1.05rem;
+        align-items: center;
+        z-index: 100;
+        height: @header-default-height;
+        background-color: @layout-header-bg;
+        box-shadow: @devui-shadow-length-connected-overlay @devui-light-shadow;
+
+        &.layout-header-fixed {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            right: 0;
+        }
+
+        .header-logo {
+            width: 123px;
+            height: 40px;
+            margin-left: 25px;
+            margin-right: 75px;
+
+            a {
+                display: inline-block;
+                height: 40px;
+            }
+
+            img {
+                height: 40px;
+            }
+
+        }
+
+        .header-trigger {
+            font-size: 14px;
+            margin-right: 10px;
+
+            :hover {
+                cursor: pointer;
+            }
+        }
+
+        .header-menu {
+            flex: 1 1 auto;
+
+            ::ng-deep ul {
+                min-height: @header-default-height;
+
+                li {
+                    height: 58px;
+                    min-width: @header-default-height;
+                    text-align: center;
+                    font-size: 1rem;
+                    line-height: 58px;
+                }
+            }
+        }
+    }
+
+    .layout-content-wrapper {
+        padding: 1rem;
+
+        .content-panel {
+            min-height: 100%;
+            height: auto;
+            padding: 1rem 1.5rem;
+            background-color: @layout-content-bg;
+            box-shadow: @devui-shadow-length-connected-overlay @devui-light-shadow;
+        }
+
+        .content-wrapper {
+            height: auto;
+            border-radius: @devui-border-radius-card;
+
+            .tab-item {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                &-title {
+                    //width: 100px;
+                    text-align: center;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                &-close-btn {
+                    right: 10px;
+                    margin: 0;
+                    display: none;
+                }
+
+                &:hover {
+                    .tab-item-close-btn {
+                        font-weight: bold;
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .inner-content {
+            padding-top: 10px;
+        }
+    }
+}
+
+:host::ng-deep {
+    .devui-backtop {
+        .devui-backtop-content {
+            background-color: @devui-base-bg;
+            color: @devui-text;
+            box-shadow: @devui-shadow-length-feedback-overlay @devui-shadow;
+            opacity: 1;
+
+            svg {
+                width: @devui-font-size-page-title;
+                height: @devui-font-size-page-title;
+
+                path {
+                    fill: @devui-text;
+                }
+            }
+
+            &:hover {
+                svg path {
+                    fill: @devui-brand;
+                }
+            }
+        }
+    }
+}

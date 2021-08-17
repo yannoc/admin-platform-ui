@@ -1,0 +1,93 @@
+@font-face {
+    font-family: "iconfont"; /* Project id 2731562 */
+    src: url('iconfont.woff2?t=1628586296637') format('woff2'),
+    url('iconfont.woff?t=1628586296637') format('woff'),
+    url('iconfont.ttf?t=1628586296637') format('truetype');
+}
+
+.cs {
+    font-family: "iconfont", serif !important;
+    font-size: inherit;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.cs-check:before {
+    content: "\e7fd";
+}
+.cs-close:before {
+    content: "\e7fc";
+}
+
+.cs-notice:before {
+    content: "\e68c";
+}
+
+.cs-retract:before {
+    content: "\e832";
+}
+
+.cs-expand:before {
+    content: "\e87f";
+}
+
+.cs-setting:before {
+    content: "\e88f";
+}
+
+.cs-xiaoxi1:before {
+    content: "\e895";
+}
+
+.cs-message:before {
+    content: "\e79d";
+}
+
+.cs-logout:before {
+    content: "\e7a1";
+}
+
+.cs-piechart:before {
+    content: "\e7a2";
+}
+
+.cs-adduser:before {
+    content: "\e7ca";
+}
+
+.cs-deleteteam:before {
+    content: "\e7cb";
+}
+
+.cs-deleteuser:before {
+    content: "\e7cc";
+}
+
+.cs-addteam:before {
+    content: "\e7cd";
+}
+
+.cs-user:before {
+    content: "\e7ce";
+}
+
+.cs-team:before {
+    content: "\e7cf";
+}
+
+.cs-scan:before {
+    content: "\e819";
+}
+
+.cs-cloud-server:before {
+    content: "\e826";
+}
+
+.cs-cloud-upload:before {
+    content: "\e827";
+}
+
+.cs-cloud:before {
+    content: "\e828";
+}
+

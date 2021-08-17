@@ -1,0 +1,39 @@
+<div [ngClass]="panelMode">
+    <div class="theme-option-header">
+        <i class="cs cs-setting"></i>
+        <!-- I18N -->
+        字体
+    </div>
+    <div class="theme-option-items">
+        <ng-container *ngFor="let font of objectKeys(customFonts)">
+            <div class="theme-option-item icon-content font" (click)="changeFont(font)">
+                <i class="check cs cs-check" *ngIf="currentFont === font"></i>A
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="theme-option-header">
+        <i class="cs cs-setting"></i>
+        <!-- I18N -->
+        圆角
+    </div>
+    <div class="theme-option-items">
+        <ng-container *ngFor="let radius of objectKeys(customRadius)">
+            <div class="theme-option-item icon-content radius" (click)="changeRadius(radius)">
+                <i class="check cs cs-check" *ngIf="currentRadius === radius"></i>⚪
+            </div>
+        </ng-container>
+    </div>
+    <ng-container *ngFor="let theme of objectKeys(customThemes)">
+        <div class="theme-option-header">
+            <i class="cs" [ngClass]="customThemes[theme].isDark?'cs-setting':'cs-use'"></i>{{ customThemes[theme].name }}
+        </div>
+        <div class="theme-option-items">
+            <ng-container *ngFor="let color of customColors">
+                <div class="theme-option-item color" [style.backgroundColor]="color" (click)="changeTheme(theme, color)">
+                    <i class="check cs cs-check" *ngIf="currentTheme===theme && currentColor===color"></i>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+</div>
