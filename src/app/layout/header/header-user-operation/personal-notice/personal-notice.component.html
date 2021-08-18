@@ -1,0 +1,83 @@
+<div class="personal-notice">
+    <d-tabs [type]="'tabs'" [(activeTab)]="tabActiveID">
+        <!--I18N -->
+        <d-tab id="notice" [title]="'消息提醒()'" tabId="notice">
+            <ng-template dTabContent>
+                <div class="notice-container">
+                    <div class="notice-content" *ngIf="notifications.length; else noData">
+                        <div
+                            class="notice-item notice-container-item"
+                            *ngFor="let notification of notifications"
+                            (click)="handleNoticeClick('notice', notification.id)"
+                            [ngClass]="{ 'notice-checked': notification.status }"
+                        >
+                            <div [class]="'notice-item-left notice-container-item-left ' + notification.type">
+                                <i [class]="'icon icon-' + notification.icon"></i>
+                            </div>
+                            <div class="notice-item-right">
+                                <div class="notice-item-title notice-container-item-title">
+                                    {{ notification.title }}
+                                </div>
+                                <div class="notice-item-time notice-container-item-time">
+                                    {{ notification.time }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notice-clear" [ngStyle]="{ visibility: notifications.length ? 'visible' : 'hidden' }">
+                        <d-button bsStyle="text-dark" bsPosition="left" [width]="'160px'" (btnClick)="handleClean('notice')">
+                            <!-- I18N -->
+                            清空
+                            <!--{{ 'notice.clear' | translate }}-->
+                        </d-button>
+                        <span class="dividing-line"></span>
+                        <d-button bsStyle="text-dark" bsPosition="right" [width]="'160px'">更多</d-button>
+                    </div>
+                </div>
+            </ng-template>
+        </d-tab>
+
+        <d-tab id="todo" [title]="'待办事项(0)'" tabId="todo">
+            <ng-template dTabContent>
+                <div class="notice-container">
+                    <div class="notice-content" *ngIf="todos.length; else noData">
+                        <div
+                            class="todo-item notice-container-item"
+                            *ngFor="let todo of todos"
+                            (click)="handleNoticeClick('todo', todo.id)"
+                            [ngClass]="{ 'notice-checked': todo.status }"
+                        >
+                            <div class="todo-item-left">
+                                <div class="todo-item-title notice-container-item-title">
+                                    {{ todo.title }}
+                                </div>
+                                <div class="todo-item-memo notice-container-item-time">
+                                    {{ todo.memo }}
+                                </div>
+                            </div>
+                            <div class="todo-item-right">
+                                <d-tag [tag]="todo.tagName" [labelStyle]="todo.tagType"></d-tag>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notice-clear" [ngStyle]="{ visibility: todos.length ? 'visible' : 'hidden' }">
+                        <d-button bsStyle="text-dark" bsPosition="left" [width]="'160px'" (btnClick)="handleClean('todo')">
+                            <!-- I18N -->
+                            清空
+                            <!--{{ 'notice.clear' | translate }}-->
+                        </d-button>
+                        <d-button bsStyle="text-dark" bsPosition="right" [width]="'160px'">更多</d-button>
+                    </div>
+                </div>
+            </ng-template>
+        </d-tab>
+    </d-tabs>
+</div>
+
+<ng-template #noData>
+    <div class="notice-no-data">
+        <i class="icon icon-desk-notice"></i>
+        <!--<span>{{ 'notice.done' | translate }}</span>-->
+        <span>你已经处理完了所有消息</span>
+    </div>
+</ng-template>

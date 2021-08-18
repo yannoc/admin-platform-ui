@@ -1,0 +1,58 @@
+<div class="dl-d-flex dl-flex-column h-100">
+    <div class="toolbar border-bottom pl-1">
+        <d-button (click)="onEditButtonClick($event)">
+            <i class="cs cs-setting"></i>编辑
+        </d-button>
+        <d-button (click)="onEditButtonClick($event)">
+            <i class="cs cs-setting"></i>保存
+        </d-button>
+    </div>
+    <d-splitter class="dl-flex-grow-1">
+        <d-splitter-pane size="50%" minSize="30%">
+            <d-splitter orientation="vertical" class="h-100">
+                <d-splitter-pane size="50%" minSize="30%">
+                    <div class="content-area">
+                        <!-- 数据类属性表单 -->
+                        <cs-class-detail></cs-class-detail>
+                    </div>
+                </d-splitter-pane>
+                <d-splitter-pane size="50%" minSize="30%">
+                    <div class="content-area">
+                        <d-tabs [type]="'tabs'" [(activeTab)]="activeTab">
+                            <d-tab id="dataAttribute" title="属性" tabId="dataAttribute">
+                                <ng-template dTabContent>
+                                    <cs-class-attribute-list></cs-class-attribute-list>
+                                </ng-template>
+                            </d-tab>
+                            <d-tab id="dataView" title="视图" tabId="dataView">
+                                <ng-template dTabContent>
+                                    <cs-class-view-list></cs-class-view-list>
+                                </ng-template>
+                            </d-tab>
+
+                            <d-tab id="dataConstraint" title="约束" tabId="dataConstraint">
+                                <ng-template dTabContent>
+                                    <p>Tab3 Content</p>
+                                </ng-template>
+                            </d-tab>
+                        </d-tabs>
+                    </div>
+                </d-splitter-pane>
+            </d-splitter>
+        </d-splitter-pane>
+        <d-splitter-pane size="50%" minSize="30%">
+            <d-splitter orientation="vertical" class="h-100">
+                <d-splitter-pane size="50%" minSize="30%">
+                    <div class="content-area">
+                        7
+                    </div>
+                </d-splitter-pane>
+                <d-splitter-pane size="50%" minSize="30%">
+                    <div class="content-area">
+                        8
+                    </div>
+                </d-splitter-pane>
+            </d-splitter>
+        </d-splitter-pane>
+    </d-splitter>
+</div>

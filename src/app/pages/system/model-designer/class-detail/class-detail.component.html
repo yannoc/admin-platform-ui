@@ -1,0 +1,28 @@
+<form dForm [layout]="layoutDirection" [labelSize]="'sm'" labelAlign="start">
+    <d-form-item>
+        <d-form-label>表名</d-form-label>
+        <d-form-control>
+            <input disabled="disabled" dTextInput name="tableName" [(ngModel)]="formData.tableName"/>
+        </d-form-control>
+    </d-form-item>
+    <d-form-item>
+        <d-form-label>名称</d-form-label>
+        <d-form-control>
+            <input dTextInput name="className" [(ngModel)]="formData.className"/>
+        </d-form-control>
+    </d-form-item>
+    <d-form-item>
+        <d-form-label>显示名</d-form-label>
+        <d-form-control>
+            <input dTextInput name="displayName" [(ngModel)]="formData.displayName"/>
+        </d-form-control>
+    </d-form-item>
+    <d-form-item>
+        <d-form-label>主键</d-form-label>
+        <d-form-control>
+            <d-select [options]="selectOptions" name="primaryKey" [filterKey]="'label'" [(ngModel)]="formData.primaryKey"></d-select>
+        </d-form-control>
+    </d-form-item>
+
+</form>
+

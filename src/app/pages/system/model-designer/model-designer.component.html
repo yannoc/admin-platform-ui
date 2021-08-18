@@ -1,0 +1,16 @@
+<div class="h-100">
+    <d-splitter class="splitter-border" orientation="horizontal">
+        <d-splitter-pane size="300px" minSize="300px" [collapsible]="false">
+            <div class="pane-content">
+                <d-tree
+                    #basicTree
+                    [tree]="nodes"
+                    (nodeSelected)="noTreeNodeSelected($event)"
+                    (nodeToggled)="onTreeNodeToggled($event)"></d-tree>
+            </div>
+        </d-splitter-pane>
+        <d-splitter-pane minSize="60%">
+            <cs-model-designer-frame></cs-model-designer-frame>
+        </d-splitter-pane>
+    </d-splitter>
+</div>

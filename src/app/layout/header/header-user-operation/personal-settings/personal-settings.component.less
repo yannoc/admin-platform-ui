@@ -1,0 +1,39 @@
+@import "~ng-devui/styles-var/devui-var.less";
+
+.drawer {
+    &-operations {
+        margin: 20px 20px 20px 0;
+        text-align: right;
+        cursor: pointer;
+    }
+
+    &-options {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-option {
+        &-header {
+            font-size: @devui-font-size-card-title;
+            margin-bottom: 12px;
+        }
+
+        &-item {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 16px;
+        }
+
+    }
+
+    .top-border {
+        border-top: 1px solid @devui-dividing-line;
+        padding: 16px 24px;
+    }
+
+    d-button {
+        margin-top: 12px;
+    }
+}
+
+
